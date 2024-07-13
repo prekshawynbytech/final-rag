@@ -103,7 +103,7 @@ def get_text() -> str:
     return input_text
 
 
-openai_api_key = "sk-proj-dKI2uHuUvMIVifcXXlZvT3BlbkFJX4sPcxhYbpmKql55Vc4c"
+openai_api_key = "sk-proj-ZtOUlxh482Gx5WDjVCGJT3BlbkFJjt01gsYPZWexZDqAvpiA"
 os.environ["OPENAI_API_KEY"] = openai_api_key
 if not openai_api_key:
     openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
