@@ -18,7 +18,7 @@ st.title("Stock Data Chatbot")
 from cypher_chain import CustomCypherChain
 
 # Load secrets
-url = st.secrets["url"]
+# url = st.secrets["url"]
 username = st.secrets["username"]
 password = st.secrets["password"]
 
