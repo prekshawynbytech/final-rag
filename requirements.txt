@@ -1,0 +1,8 @@
+streamlit==1.26.0
+openai
+langchain
+neo4j
+graphviz
+pydantic==2.3.0
+langchain-community
+dotenv

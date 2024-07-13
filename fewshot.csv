@@ -1,0 +1,63 @@
+Question,Cypher
+"What is the total profit and loss for July?
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period)
+WHERE p.month = 'July'
+RETURN SUM(a.profit_loss) AS total_profit_loss"
+"Show me the profit and loss for the month of December.
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period)
+WHERE p.month = 'December'
+RETURN SUM(a.profit_loss) AS total_profit_loss"
+" Can you sum up the Profit and loss for September
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period)
+WHERE p.month = 'September'
+RETURN SUM(a.profit_loss) AS total_profit_loss"
+"List all orders for the first week of July
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period)
+WHERE p.month = 'July' AND p.week = 'first week'
+RETURN a"
+"Show me the orders placed in the third week of November
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period {week: 3, month: 11, year: 2024})
+RETURN a"
+"Retrieve orders for the last week of January
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period {week: 4, month: 1, year: 2024})
+RETURN a"
+"Give me the details of the order with orderId 12345
+","MATCH (a:AlgoOrders {id: 12345})
+RETURN a"
+"What are the orders placed in July
+","MATCH (a:AlgoOrders)
+WHERE date(a.date) >= date('2024-07-01') AND date(a.date) <= date('2024-07-31')
+RETURN a"
+"what are the orders placed in june
+","MATCH (a:AlgoOrders)
+WHERE date(a.date) >= date('2024-06-01') AND date(a.date) <= date('2024-06-30')
+RETURN a"
+"Show the buy date for order ID 54321
+","MATCH (a:AlgoOrders {id: 54321})
+RETURN a.order_buy_datetime AS buy_date"
+"Show the cumulative profit and loss for the year 2022
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period {year: 2022})
+RETURN SUM(a.profit_loss) AS total_profit_loss"
+"Can you provide summary of profit and loss for each month in 2021
+","MATCH (a:AlgoOrders)-[:IN_PERIOD]->(p:Period {year: 2021})
+RETURN p.month, SUM(a.profit_loss) AS total_profit_loss
+ORDER BY p.month"
+"List all the orders made on July 15, 2023
+","MATCH (a:AlgoOrders)
+WHERE date(a.order_buy_datetime) = date('2023-07-15')
+RETURN a"
+"Show me the orders placed on January 1, 2024
+","MATCH (a:AlgoOrders)
+WHERE date(a.order_buy_datetime) = date('2024-01-01')
+RETURN a"
+"Retrieve orders with the buy date of December 25, 2022
+","MATCH (a:AlgoOrders)
+WHERE date(a.order_buy_datetime) = date('2022-12-25')
+RETURN a"
+"What is the total profit and loss for Dhoni strategy in July
+","MATCH (a:AlgoOrders {strategy: 'Dhoni'})-[:IN_PERIOD]->(p:Period {month: 7, year: 2024})
+RETURN SUM(a.profit_loss) AS total_profit_loss"
+"What is the total profit and loss for Dhoni strategy last week
+","MATCH (a:AlgoOrders {strategy: 'Dhoni'})-[:IN_PERIOD]->(p:Period {week: 27, year: 2024}) // adjust week and year as needed
+RETURN SUM(a.profit_loss) AS total_profit_loss"
+
