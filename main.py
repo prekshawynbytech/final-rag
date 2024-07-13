@@ -4,10 +4,11 @@ import streamlit as st
 import graphviz
 from langchain.chat_models import ChatOpenAI
 from langchain.graphs import Neo4jGraph
+from dotenv import load_dotenv
 from langchain.schema import HumanMessage, AIMessage
 
 import pandas as pd
-
+load_dotenv()
 from cypher_chain import CYPHER_QA_PROMPT
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -102,7 +103,7 @@ def get_text() -> str:
     return input_text
 
 
-openai_api_key = "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"
+openai_api_key = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = openai_api_key
 if not openai_api_key:
     openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
