@@ -23,7 +23,7 @@ username = st.secrets["username"]
 password = st.secrets["password"]
 
 # Langchain x Neo4j connections
-graph = Neo4jGraph(username=username, password=password, url=url)
+graph = Neo4jGraph(username=username, password=password)
 
 graph_search = None
 
