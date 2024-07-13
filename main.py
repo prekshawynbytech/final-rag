@@ -18,12 +18,12 @@ st.title("Stock Data Chatbot")
 from cypher_chain import CustomCypherChain
 
 # Load secrets
-# url = st.secrets["url"]
-username = st.secrets["username"]
-password = st.secrets["password"]
+url = "neo4j+s://c1e96139.databases.neo4j.io"
+username = "neo4j"
+password = "t90Pab_G9IVD3nQ7QWN_gX5l9IQZ0q9kM4fbk5iCX7A"
 
 # Langchain x Neo4j connections
-graph = Neo4jGraph(username=username, password=password)
+graph = Neo4jGraph(username=username, password=password, url=url)
 
 graph_search = None
 
